@@ -15,7 +15,11 @@ extra_css:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - toc:
       permalink: true
@@ -27,5 +31,11 @@ watch:
 plugins:
   - search
   - awesome-pages
+  - to-pdf:
+      cover_subtitle: '生成AI時代のドキュメント基盤'
+      toc_title: 目次
+      toc_level: 3
+      output_path: pdf/生成AI時代のドキュメント基盤.pdf
+      enabled_if_env: ENABLE_PDF
   - table-reader:
       enabled: true
